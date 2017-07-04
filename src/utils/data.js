@@ -1,15 +1,13 @@
-import faker from 'faker';
+import Chance from 'chance';
+export const chance = Chance();
 
-export function generateProducts(numberOfProducts, products = []) {
-
-  if (numberOfProducts === 0) return products;
-
-  products.push({
-    name: faker.commerce.productName(),
-    department: faker.commerce.department(),
-    price: faker.commerce.price(),
-    stock: Math.floor(Math.random()*(10 - 2) + 0),
-    type: faker.commerce.product(),
-  });
-  return generateProducts(numberOfProducts - 1, products);
+export function generateProducts(numberOfProducts) {
+  return Array.from({length: numberOfProducts}, () => ({
+    id: chance.guid(),
+    name: chance.word(),
+    department: chance.word(),
+    price: chance.dollar({max: 1000}),
+    stock: chance.integer({min: 0, max: 20}),
+    type: chance.word(),
+  }));
 }
