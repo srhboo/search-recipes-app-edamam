@@ -8,8 +8,11 @@ const INITIAL_STATE = {
 };
 
 export const products = (state = INITIAL_STATE.products, { type, payload }) => {
-  if (type === ACTION_TYPES.addProduct) {
-    return [...state, payload.product];
+  debugger;
+  switch (type) {
+    case ACTION_TYPES.addProduct:
+      debugger;
+      return [...state, payload.product];
   }
 
   return state;

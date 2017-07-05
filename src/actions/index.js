@@ -1,8 +1,9 @@
 export const ACTION_TYPES = {
-  addProduct: 'ADD_PRODUCT',
-}
+  addProduct: 'ADD_PRODUCTS',
+};
 
 export function addProduct(product) {
+  debugger;
   return {
     type: ACTION_TYPES.addProduct,
     payload: {
