@@ -22,3 +22,127 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+body a{
+  color:#000;
+}
+body a:hover{
+  color:red;
+}
+.search-section{
+  padding:1em;
+  text-align:center;
+}
+.search-recipes-label{
+  font-weight:900;
+  font-size:1.5em;
+  vertical-align: middle;
+  margin-right:1em;
+}
+.search-button{
+  background:yellow;
+  border:2px solid #000;
+  outline:0;
+}
+.search-section input{
+  margin-right: 1em;
+  line-height: 1.7em;
+  border-bottom: 2px solid #000;
+  border-top: 0;
+  border-left: 0;
+  outline: 0;
+  border-right: 0;
+  text-align:center;
+}
+.recipes-container{
+  display:flex;
+}
+.displayed-recipe {
+  margin-left:2em;
+  margin-right:2em;
+  padding:0 2em 0 2em;
+  flex: 70;
+}
+.displayed-recipe h2 {
+  font-size:2.5em;
+  margin-bottom:0.2em;
+}
+.source-text {
+  font-size:0.3em;
+  font-weight:100;
+}
+.recipe-details img {
+  object-fit:contain;
+}
+.selected-info {
+  padding:1em;
+}
+.selected-info h4{
+  text-transform:uppercase;
+}
+.section-links button {
+  font-size:1.5em;
+  margin-top:0.5em;
+  color:#000;
+  text-decoration: none;
+  border:none;
+  outline:none;
+  background-color:#fff;
+  margin-right:1em;
+  margin-left:1em;
+}
+.section-links button:hover {
+  cursor:pointer;
+  color:red;
+}
+.container-left{
+  flex:30;
+}
+.container-right{
+  flex:30;
+}
+.results-list {
+  margin-left:10em;
+  margin-right:10em;
+}
+.results-list li {
+  list-style:none;
+  padding:1em;
+  border:3px solid #000;
+  margin-bottom:1.5em;
+  text-align:center;
+}
+.results-list li:hover {
+  background-color:yellow;
+  -webkit-transition: background-color 0.6s ease-out;
+  -moz-transition: background-color 0.6s ease-out;
+  -o-transition: background-color 0.6s ease-out;
+  transition: background-color 0.6s ease-out;
+}
+.results-list h4 {
+  margin-top:0.3em;
+  margin-bottom:0.3em;
+}
+.bottom-thick{
+  border-bottom:4px solid #000;
+}
+.bottom-med{
+  border-bottom:3px solid #000;
+}
+.bottom-thin{
+  border-bottom:2px solid #000;
+}
+.bottom-thin:last-child{
+  border-bottom:0;
+}
+.nutrition-label{
+  padding:3px;
+}
+.nutrition-box{
+  border:2px solid #000;
+  display:inline-block;
+  padding:10px;
+}
+.section-links button.bold-selected{
+  font-weight:900;
+}
