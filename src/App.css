@@ -17,7 +17,22 @@
 .App-intro {
   font-size: large;
 }
-
+html{
+  min-height:100%;
+}
+body{
+  min-height:100%;
+  min-width:100%;
+  position:absolute;
+  margin:0;
+  padding:0;
+}
+#root{
+  height:100vh;
+}
+#root > div {
+  height:100%;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -29,9 +44,23 @@ body a{
 body a:hover{
   color:red;
 }
+.app-title{
+  font-size:4em;
+  flex:50;
+  text-align:right;
+  padding-right:20px;
+}
 .search-section{
-  padding:1em;
-  text-align:center;
+  padding:2em 0 2em 0;
+  display:flex;
+  background-color:#f9c1ad;
+  position:fixed;
+  width:100%;
+  z-index:1;
+}
+.search-left{
+  flex:50;
+  padding-left:2em;
 }
 .search-recipes-label{
   font-weight:900;
@@ -43,6 +72,7 @@ body a:hover{
   background:yellow;
   border:2px solid #000;
   outline:0;
+  font-size:1.1em;
 }
 .search-section input{
   margin-right: 1em;
@@ -53,9 +83,13 @@ body a:hover{
   outline: 0;
   border-right: 0;
   text-align:center;
+  background-color:inherit;
+  font-size:1.3em;
 }
 .recipes-container{
   display:flex;
+  width:100%;
+  height:100%;
 }
 .displayed-recipe {
   margin-left:2em;
@@ -63,6 +97,7 @@ body a:hover{
   padding:0 2em 0 2em;
   flex: 70;
 }
+
 .displayed-recipe h2 {
   font-size:2.5em;
   margin-bottom:0.2em;
@@ -96,21 +131,49 @@ body a:hover{
   color:red;
 }
 .container-left{
-  flex:30;
+  flex:40;
+  background-image: url("./img/gathering_medium.jpg");
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-position:right;
+  overflow:scroll;
+}
+@media screen and (min-width:1000px) {
+  .container-left{
+    background-image: url("./img/gathering_large.jpg");
+  }
+}
+@media screen and (max-width:500px){
+  .container-left{
+    background-image: url("./img/gathering_small.jpg");
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
 }
 .container-right{
-  flex:30;
+  flex:60;
 }
 .results-list {
   margin-left:10em;
   margin-right:10em;
+  padding-top:12em;
 }
+
+
 .results-list li {
   list-style:none;
   padding:1em;
   border:3px solid #000;
   margin-bottom:1.5em;
   text-align:center;
+  animation: 0.5s ease-out 0s 1 fadeIn;
+  background-color:#fff;
 }
 .results-list li:hover {
   background-color:yellow;
@@ -145,4 +208,8 @@ body a:hover{
 }
 .section-links button.bold-selected{
   font-weight:900;
+}
+.selected-info{
+  display:flex;
+  align-items:center;
 }
