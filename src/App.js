@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { updateInput, search, displayRecipe, switchInfo } from './actions';
+import { updateInput, search, displayRecipe, switchInfo, setError } from './actions';
 import Chance from 'chance';
 import { DisplayedRecipe, NutritionContent, RecipeContent, ResultsList, ResultsListItem, SearchSection, SectionLink } from './components'
 export const chance = Chance();
@@ -10,7 +10,8 @@ const mapStateToProps = state => ({
   input: state.input,
   results: state.results,
   recipe: state.recipe,
-  info: state.info
+  info: state.info,
+  error: state.error
 });
 
 const mapDispatchToProps = {

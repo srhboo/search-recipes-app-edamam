@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Shrikhand');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 .App {
   text-align: center;
 }
@@ -26,7 +28,9 @@ body{
   position:absolute;
   margin:0;
   padding:0;
+  font-family:'Raleway', sans-serif;
 }
+
 #root{
   height:100vh;
 }
@@ -49,11 +53,15 @@ body a:hover{
   flex:50;
   text-align:right;
   padding-right:20px;
+  font-family: 'Shrikhand', cursive;
+  color:#fff;
+  opacity:0.5;
 }
 .search-section{
   padding:2em 0 2em 0;
   display:flex;
   background-color:#f9c1ad;
+  align-items:center;
   position:fixed;
   width:100%;
   z-index:1;
@@ -62,17 +70,26 @@ body a:hover{
   flex:50;
   padding-left:2em;
 }
+.keep-together{
+  white-space: nowrap;
+  display:inline-block;
+}
 .search-recipes-label{
-  font-weight:900;
+  font-weight:100;
   font-size:1.5em;
   vertical-align: middle;
   margin-right:1em;
 }
 .search-button{
   background:yellow;
+  font-family:'Shrikhand',sans-serif;
   border:2px solid #000;
   outline:0;
   font-size:1.1em;
+}
+.search-button:hover{
+  background-color:red;
+  cursor:pointer;
 }
 .search-section input{
   margin-right: 1em;
@@ -95,16 +112,18 @@ body a:hover{
   margin-left:2em;
   margin-right:2em;
   padding:0 2em 0 2em;
-  flex: 70;
+  display:inline-block
 }
 
 .displayed-recipe h2 {
   font-size:2.5em;
-  margin-bottom:0.2em;
+  margin-bottom:0.5em;
+  font-weight:100;
 }
 .source-text {
   font-size:0.3em;
   font-weight:100;
+  margin-top:1em;
 }
 .recipe-details img {
   object-fit:contain;
@@ -113,7 +132,7 @@ body a:hover{
   padding:1em;
 }
 .selected-info h4{
-  text-transform:uppercase;
+  font-weight:700;
 }
 .section-links button {
   font-size:1.5em;
@@ -122,16 +141,18 @@ body a:hover{
   text-decoration: none;
   border:none;
   outline:none;
-  background-color:#fff;
+  background-color:#eee;
   margin-right:1em;
   margin-left:1em;
+  margin-bottom:1em;
+  font-family:'Shrikhand',cursive;
 }
 .section-links button:hover {
   cursor:pointer;
   color:red;
 }
 .container-left{
-  flex:40;
+  flex:50;
   background-image: url("./img/gathering_medium.jpg");
   background-size: cover;
   background-repeat:no-repeat;
@@ -157,7 +178,12 @@ body a:hover{
   }
 }
 .container-right{
-  flex:60;
+  flex:50;
+  padding-top:10em;
+  padding-bottom:5em;
+  text-align:center;
+  overflow:scroll;
+  background-color:#eee;
 }
 .results-list {
   margin-left:10em;
@@ -177,6 +203,7 @@ body a:hover{
 }
 .results-list li:hover {
   background-color:yellow;
+  cursor:pointer;
   -webkit-transition: background-color 0.6s ease-out;
   -moz-transition: background-color 0.6s ease-out;
   -o-transition: background-color 0.6s ease-out;
@@ -207,9 +234,11 @@ body a:hover{
   padding:10px;
 }
 .section-links button.bold-selected{
-  font-weight:900;
+  border-bottom:5px solid #000;
 }
 .selected-info{
-  display:flex;
-  align-items:center;
+  display:inline-block;
+  text-align:left;
+  background-color:#fff;
+  border:1px solid #000;
 }

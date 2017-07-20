@@ -6,7 +6,8 @@ const INITIAL_STATE = {
   input: '',
   results: [],
   recipe: {},
-  info: 'recipe'
+  info: 'recipe',
+  error: false
 };
 
 export const input = ( state = INITIAL_STATE.input, {type, payload}) => {
@@ -41,9 +42,20 @@ export const info = (state = INITIAL_STATE.info, {type, payload}) => {
   return state;
 };
 
+export const error = (state = INITIAL_STATE.error, {type, payload}) => {
+  switch(type) {
+    case ACTION_TYPES.SET_ERROR:
+      return payload;
+    case ACTION_TYPES.UPDATE_RESULTS:
+      return false;
+  }
+  return state;
+}
+
 export default combineReducers({
   results,
   input,
   recipe,
-  info
+  info,
+  error
 });
