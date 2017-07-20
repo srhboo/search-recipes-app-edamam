@@ -34,3 +34,10 @@ export function switchInfo(info) {
       payload: info
     }
 }
+
+export function setError(error) {
+  return {
+    type: ACTION_TYPES.SET_ERROR,
+    payload: error
+  }
+}

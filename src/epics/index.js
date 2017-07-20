@@ -1,13 +1,17 @@
 import { combineEpics } from 'redux-observable';
-import { fetchRecipes } from '../api/edamam';
-import { search, updateResults } from '../actions';
+import { BASE_ENDPOINT } from '../api/edamam';
+import { search, updateResults, setError } from '../actions';
 import { ACTION_TYPES } from '../constants/ActionTypes';
+import { Observable } from 'rxjs';
 
 
 const recipeEpic = action$ =>
     action$.ofType(ACTION_TYPES.SEARCH)
-    .mergeMap(action => fetchRecipes(action.payload))
-    .map(response => response.hits.length ? updateResults(response.hits) : console.log(response));
+    .mergeMap(action => 
+        Observable.ajax(`${BASE_ENDPOINT}&q=${action.payload}`)
+            .map(({response}) => response.hits ? updateResults(response.hits) : console.log('error'))
+            .catch(error => Observable.of(setError(true))) //why does this need to be observable of?
+);
 
 export default combineEpics(
     recipeEpic
