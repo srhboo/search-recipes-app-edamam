@@ -1,3 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+Deployed at findarecipe.herokuapp.com :)
 
 Search recipes by keyword, calories, and health labels!

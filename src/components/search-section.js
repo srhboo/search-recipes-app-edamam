@@ -14,7 +14,7 @@ export const SearchSection = ({input, updateInput, search, showOptions, displayO
        }
       </div>
     </div>
-    <div className="app-title">recipebook</div>
+    <div className="app-title">find-a-recipe</div>
   </div>
 );
 
