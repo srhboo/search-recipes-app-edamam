@@ -41,3 +41,10 @@ export function setError(error) {
     payload: error
   }
 }
+
+export function displayOptions(bool) {
+  return {
+    type: ACTION_TYPES.DISPLAY_OPTIONS,
+    payload: bool
+  }
+}

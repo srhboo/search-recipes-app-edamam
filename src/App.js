@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { updateInput, search, displayRecipe, switchInfo, setError } from './actions';
+import { updateInput, search, displayRecipe, switchInfo, setError, displayOptions } from './actions';
 import Chance from 'chance';
-import { DisplayedRecipe, NutritionContent, RecipeContent, ResultsList, ResultsListItem, SearchSection, SectionLink } from './components'
+import { DisplayedRecipe, NutritionContent, RecipeContent, ResultsList, ResultsListItem, SearchSection, SectionLink, WelcomeInstructions } from './components'
 export const chance = Chance();
 
 const mapStateToProps = state => ({
@@ -11,14 +11,17 @@ const mapStateToProps = state => ({
   results: state.results,
   recipe: state.recipe,
   info: state.info,
-  error: state.error
+  error: state.error,
+  showOptions: state.showOptions,
+  loading: state.loading
 });
 
 const mapDispatchToProps = {
   updateInput,
   search,
   displayRecipe,
-  switchInfo
+  switchInfo,
+  displayOptions
 };
 
 
@@ -41,7 +44,10 @@ class App extends Component {
           <ResultsList {...this.props} />
           </div>
           <div className="container-right">
-          <DisplayedRecipe info={info} recipe={recipe} switchInfo={switchInfo} />
+            {
+              recipe.label ? <DisplayedRecipe info={info} recipe={recipe} switchInfo={switchInfo} /> : <WelcomeInstructions />
+            }
+          
           </div>
         </div>
       </div>
