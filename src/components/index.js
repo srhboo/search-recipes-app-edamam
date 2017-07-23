@@ -5,6 +5,7 @@ import {ResultsListItem} from './results-list-item';
 import {ResultsList} from './results-list';
 import {SearchSection} from './search-section';
 import {SectionLink} from './section-link';
+import {WelcomeInstructions} from './welcome-instructions';
 
 export {
     DisplayedRecipe,
@@ -13,5 +14,6 @@ export {
     ResultsListItem,
     ResultsList,
     SearchSection,
-    SectionLink
+    SectionLink,
+    WelcomeInstructions
 }

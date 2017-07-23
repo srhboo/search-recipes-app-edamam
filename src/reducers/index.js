@@ -7,7 +7,9 @@ const INITIAL_STATE = {
   results: [],
   recipe: {},
   info: 'recipe',
-  error: false
+  error: false,
+  showOptions: false,
+  loading: false
 };
 
 export const input = ( state = INITIAL_STATE.input, {type, payload}) => {
@@ -52,10 +54,32 @@ export const error = (state = INITIAL_STATE.error, {type, payload}) => {
   return state;
 }
 
+export const showOptions = (state = INITIAL_STATE.showOptions, {type, payload}) => {
+  switch(type) {
+    case ACTION_TYPES.DISPLAY_OPTIONS:
+      return payload;
+  }
+  return state;
+}
+
+export const loading = (state = INITIAL_STATE.showOptions, {type, payload}) => {
+  switch(type) {
+    case ACTION_TYPES.SEARCH:
+      return true;
+    case ACTION_TYPES.UPDATE_RESULTS:
+      return false;
+    case ACTION_TYPES.SET_ERROR:
+      return false;
+  }
+  return state;
+}
+
 export default combineReducers({
   results,
   input,
   recipe,
   info,
-  error
+  error,
+  showOptions,
+  loading
 });

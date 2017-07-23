@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Shrikhand');
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,700');
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script');
+
 .App {
   text-align: center;
 }
@@ -28,7 +29,7 @@ body{
   position:absolute;
   margin:0;
   padding:0;
-  font-family:'Raleway', sans-serif;
+  font-family:'Cabin', sans-serif;
 }
 
 #root{
@@ -49,22 +50,23 @@ body a:hover{
   color:red;
 }
 .app-title{
-  font-size:4em;
+  font-size:3em;
   flex:50;
   text-align:right;
   padding-right:20px;
-  font-family: 'Shrikhand', cursive;
+  font-family: 'Oleo Script', sans-serif;
   color:#fff;
-  opacity:0.5;
+  opacity:0.8;
 }
 .search-section{
-  padding:2em 0 2em 0;
+  padding:1em 0 1em 0;
   display:flex;
-  background-color:#f9c1ad;
+  background-color:#a72926;
   align-items:center;
   position:fixed;
   width:100%;
   z-index:1;
+  color:#fff;
 }
 .search-left{
   flex:50;
@@ -74,34 +76,32 @@ body a:hover{
   white-space: nowrap;
   display:inline-block;
 }
-.search-recipes-label{
-  font-weight:100;
-  font-size:1.5em;
-  vertical-align: middle;
-  margin-right:1em;
-}
+
 .search-button{
-  background:yellow;
-  font-family:'Shrikhand',sans-serif;
-  border:2px solid #000;
+  background:#a72926;
+  font-family:'Oleo Script',sans-serif;
+  border:2px solid #fff;
+  color:#fff;
   outline:0;
-  font-size:1.1em;
+  font-size:1.3em;
 }
 .search-button:hover{
-  background-color:red;
+  color:yellow;
+  border:2px solid yellow;
   cursor:pointer;
 }
 .search-section input{
   margin-right: 1em;
   line-height: 1.7em;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #fff;
   border-top: 0;
   border-left: 0;
   outline: 0;
   border-right: 0;
   text-align:center;
   background-color:inherit;
-  font-size:1.3em;
+  font-size:1.2em;
+  color:#fff;
 }
 .recipes-container{
   display:flex;
@@ -112,7 +112,7 @@ body a:hover{
   margin-left:2em;
   margin-right:2em;
   padding:0 2em 0 2em;
-  display:inline-block
+  display:inline-block;
 }
 
 .displayed-recipe h2 {
@@ -130,6 +130,7 @@ body a:hover{
 }
 .selected-info {
   padding:1em;
+  margin-bottom:2em;
 }
 .selected-info h4{
   font-weight:700;
@@ -145,7 +146,7 @@ body a:hover{
   margin-right:1em;
   margin-left:1em;
   margin-bottom:1em;
-  font-family:'Shrikhand',cursive;
+  font-family:'Oleo Script',sans-serif;
 }
 .section-links button:hover {
   cursor:pointer;
@@ -169,6 +170,11 @@ body a:hover{
     background-image: url("./img/gathering_small.jpg");
   }
 }
+@media screen and (max-width:768px){
+  .app-title{
+    display:none;
+  }
+}
 @keyframes fadeIn {
   0% {
     opacity:0;
@@ -179,8 +185,7 @@ body a:hover{
 }
 .container-right{
   flex:50;
-  padding-top:10em;
-  padding-bottom:5em;
+  padding-top:7em;
   text-align:center;
   overflow:scroll;
   background-color:#eee;
@@ -189,6 +194,7 @@ body a:hover{
   margin-left:10em;
   margin-right:10em;
   padding-top:12em;
+  font-size:14px;
 }
 
 
@@ -241,4 +247,37 @@ body a:hover{
   text-align:left;
   background-color:#fff;
   border:1px solid #000;
+}
+.ingredient-line{
+  margin-bottom:0.8em;
+}
+.error-message, .loading-message{
+  color:black;
+  background-color:white;
+  border:3px solid #000;
+  text-align: center;
+  font-size: 1.2em;
+  line-height:2em;
+  padding:1em;
+  opacity:0.8;
+}
+.options-label{
+  display:none;
+  opacity:0.7;
+  padding: 1em 0 1em 0;
+}
+.options-label:hover{
+  cursor:pointer;
+}
+.welcome-instructions{
+  opacity:0.7;
+  padding:1em 2em 2em 2em;
+}
+.welcome-instructions li{
+  text-align:left;
+  font-size:1.5em;
+  margin-bottom:1em;
+}
+.welcome-instructions h4{
+  font-size:2em;
 }
