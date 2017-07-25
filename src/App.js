@@ -26,9 +26,8 @@ class App extends Component {
 
     return (
       <div>
-
+        <SearchSection {...this.props}/>
         <div className="recipes-container">
-          <SearchSection {...this.props}/>
           <div className="container-left">
           <ResultsList {...this.props} />
           </div>

@@ -77,13 +77,15 @@ body a:hover{
   opacity:0.8;
 }
 .search-section{
-  padding:1em 2em 1em 2em;
+  padding:1em 0 1em 2em;
   display:flex;
   flex-wrap:wrap;
-  flex: 0 1 100%;
+  width:100%;
   background-color:#a72926;
   align-items:center;
   color:#fff;
+  position:fixed;
+  z-index:1;
 }
 .search-left{
   flex-basis: 50%;
@@ -133,19 +135,18 @@ body a:hover{
   display:flex;
   justify-content: center;
 }
-.options-box .center-stuff{
-  margin:0;
-}
+
 .options-box{
   position:fixed;
   top:0;
   background-color:#a72926;
-  padding:1em 2em 1em 2em;
-  z-index:1;
+  z-index:2;
 }
 .options-box div {
-  margin-top:1.5em;
-  margin-bottom:1.5em;
+  padding: 0.75em;
+}
+.options-box div:first-child {
+  padding-top: 5em;
 }
 .update-button{
   font-size:0.8em;
@@ -209,6 +210,7 @@ body a:hover{
   background-repeat:no-repeat;
   background-position:right;
   overflow:scroll;
+  padding-top:4em;
 }
 @media screen and (min-width:1000px) {
   .container-left{
@@ -225,6 +227,22 @@ body a:hover{
     display:none;
   }
 }
+@media screen and (max-width:800px){
+  .search-section{
+    text-align:center;
+  }
+  .options-box{
+    width:100%;
+    height:100%;
+    left:0;
+    display:flex;
+    flex-flow:column;
+    justify-content: center;
+  }
+  .options-box div:first-child {
+    padding-top: 0.75em;
+  }
+}
 @keyframes fadeIn {
   0% {
     opacity:0;
@@ -237,16 +255,17 @@ body a:hover{
   flex-basis:50%;
   flex-grow:1;
   min-width: 400px;
-  padding-top:7em;
   text-align:center;
   overflow:scroll;
   background-color:#eee;
+  padding-top:5em;
 }
 .results-list {
-  margin-left:10em;
-  margin-right:10em;
-  padding-top:12em;
+  margin-left:20%;
+  margin-right:20%;
+  padding-top:5em;
   font-size:14px;
+
 }
 .results-list li {
   list-style:none;
