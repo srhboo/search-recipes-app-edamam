@@ -87,7 +87,12 @@ body a:hover{
 .search-left{
   flex-basis: 50%;
   flex-grow:1;
-  min-width: 300px;
+  min-width: 400px;
+}
+.keep-together{
+  white-space: nowrap;
+  display:inline-block;
+  padding-left:2em;
 }
 
 .search-button, button {
@@ -105,7 +110,6 @@ body a:hover{
 }
 .search-section input{
   margin-right: 1em;
-  margin-left: 2em;
   line-height: 1.7em;
   border-bottom: 2px solid #fff;
   border-top: 0;
@@ -198,7 +202,7 @@ body a:hover{
 .container-left{
   flex-basis: 50%;
   flex-grow:1;
-  min-width: 300px;
+  min-width: 400px;
   background-image: url("./img/gathering_medium.jpg");
   background-size: cover;
   background-repeat:no-repeat;
@@ -216,38 +220,15 @@ body a:hover{
     background-image: url("./img/gathering_small.jpg");
   }
 }
-@media screen and (max-width:768px){
-  .app-title{
-    display:none;
-  }
-}
-@media screen and (max-width:600px){
-  .search-section{
+@media screen and (max-width:800px) {
+  .search-section {
     text-align:center;
   }
-  .options-box{
-    width:100%;
-    height:100%;
-    left:0;
-    display:flex;
-    flex-flow:column;
-    justify-content: center;
-  }
-  .options-box div:first-child {
-    padding-top: 0.75em;
-  }
-
   .recipes-container .container-right {
     padding-top:0;
   }
-  .search-left input {
-    margin-left:0;
-    margin-right:0;
-    margin-bottom:1em;
-  }
   .container-left {
-    padding-top:8em;
-    padding-bottom:2em;
+    padding-bottom:1em;
   }
 }
 @keyframes fadeIn {
@@ -261,7 +242,7 @@ body a:hover{
 .container-right{
   flex-basis:50%;
   flex-grow:1;
-  min-width: 300px;
+  min-width: 400px;
   text-align:center;
   overflow:scroll;
   background-color:#eee;
@@ -340,7 +321,7 @@ body a:hover{
 .advanced-options{
   flex-basis:50%;
   flex-grow:1;
-  min-width: 300px;
+  min-width: 400px;
 }
 .options-label{
   padding: 1em 0 1em 0;
