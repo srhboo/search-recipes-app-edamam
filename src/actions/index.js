@@ -48,3 +48,31 @@ export function displayOptions(bool) {
     payload: bool
   }
 }
+
+export function minCalChange(value) {
+  return {
+    type: ACTION_TYPES.MINCAL_CHANGE,
+    payload: value
+  }
+}
+
+export function maxCalChange(value) {
+  return {
+    type: ACTION_TYPES.MAXCAL_CHANGE,
+    payload: value
+  }
+}
+
+export function labelsChange(value) {
+  return {
+    type: ACTION_TYPES.LABELS_CHANGE,
+    payload: value
+  }
+}
+
+export function ingredientsChange(value) {
+  return {
+    type: ACTION_TYPES.INGREDIENTS_CHANGE,
+    payload: value
+  }
+}

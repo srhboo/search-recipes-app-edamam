@@ -9,7 +9,12 @@ const INITIAL_STATE = {
   info: 'recipe',
   error: false,
   showOptions: false,
-  loading: false
+  loading: false,
+  options: {
+    cals:["any","any"],
+    labels: ["all","all"],
+    ingredients: []
+  }
 };
 
 export const input = ( state = INITIAL_STATE.input, {type, payload}) => {
@@ -62,7 +67,7 @@ export const showOptions = (state = INITIAL_STATE.showOptions, {type, payload}) 
   return state;
 }
 
-export const loading = (state = INITIAL_STATE.showOptions, {type, payload}) => {
+export const loading = (state = INITIAL_STATE.loading, {type, payload}) => {
   switch(type) {
     case ACTION_TYPES.SEARCH:
       return true;
@@ -74,6 +79,20 @@ export const loading = (state = INITIAL_STATE.showOptions, {type, payload}) => {
   return state;
 }
 
+export const options = (state = INITIAL_STATE.options, {type, payload}) => {
+  switch(type) {
+    case ACTION_TYPES.MINCAL_CHANGE:
+      return {...state, cals: state.cals.map((curr, index) => index === 0 ? payload : curr )};
+    case ACTION_TYPES.MAXCAL_CHANGE:
+      return {...state, cals: state.cals.map((curr, index) => index === 1 ? payload : curr )};
+    case ACTION_TYPES.LABELS_CHANGE:
+      return {...state, labels: payload };
+    case ACTION_TYPES.INGREDIENTS_CHANGE:
+      return {...state, ingredients: payload };
+  }
+  return state;
+};
+
 export default combineReducers({
   results,
   input,
@@ -81,5 +100,6 @@ export default combineReducers({
   info,
   error,
   showOptions,
-  loading
+  loading,
+  options
 });

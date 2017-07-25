@@ -1,29 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { connect } from 'react-redux';
-import { updateInput, search, displayRecipe, switchInfo, setError, displayOptions } from './actions';
-import Chance from 'chance';
 import { DisplayedRecipe, NutritionContent, RecipeContent, ResultsList, ResultsListItem, SearchSection, SectionLink, WelcomeInstructions } from './components'
-export const chance = Chance();
-
-const mapStateToProps = state => ({
-  input: state.input,
-  results: state.results,
-  recipe: state.recipe,
-  info: state.info,
-  error: state.error,
-  showOptions: state.showOptions,
-  loading: state.loading
-});
-
-const mapDispatchToProps = {
-  updateInput,
-  search,
-  displayRecipe,
-  switchInfo,
-  displayOptions
-};
-
 
 class App extends Component {
 
@@ -31,23 +8,34 @@ class App extends Component {
     super(props);
   }
 
-  componentDidMount() {
-  }
 
   render() {
-    const { updateInput, input, results, search, displayRecipe, recipe, info, switchInfo } = this.props;
+    const { updateInput, 
+            input, 
+            results, 
+            search, 
+            displayRecipe, 
+            recipe, 
+            info, 
+            switchInfo,
+            options,
+            minCalChange,
+            maxCalChange,
+            labelsChange,
+            ingredientsChange } = this.props;
+
     return (
       <div>
+
         <div className="recipes-container">
-          <div className="container-left">
           <SearchSection {...this.props}/>
+          <div className="container-left">
           <ResultsList {...this.props} />
           </div>
           <div className="container-right">
             {
               recipe.label ? <DisplayedRecipe info={info} recipe={recipe} switchInfo={switchInfo} /> : <WelcomeInstructions />
             }
-          
           </div>
         </div>
       </div>
@@ -56,4 +44,4 @@ class App extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
