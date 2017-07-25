@@ -19,10 +19,8 @@ export const SearchSection = ({input,
                                ingredientsChange}) => (
   <div className="search-section">
     <div className="search-left">
-      <span className="keep-together">
         <input value={input} onChange={ev => updateInput(ev.target.value)} /> 
-        < button className="search-button" onClick={ev => search(input)}>Get Cooking!</button>
-      </span>
+        <button className="search-button" onClick={ev => search(input)}>Get Cooking!</button>
     </div>
     <div className="advanced-options">
         <div className="options-label" onClick={ev => displayOptions(!showOptions)}> 
