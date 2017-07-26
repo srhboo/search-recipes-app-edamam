@@ -1,4 +1,4 @@
-import {ACTION_TYPES} from '../constants/ActionTypes';
+import { ACTION_TYPES } from '../constants/ActionTypes';
 
 export function updateInput(val) {
   return {
@@ -7,10 +7,10 @@ export function updateInput(val) {
   }
 }
 
-export function search(val) {
+export function search(input, options) {
   return {
     type: ACTION_TYPES.SEARCH,
-    payload: val
+    payload: {input, options}
   }
 }
 

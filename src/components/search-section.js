@@ -1,11 +1,12 @@
 import React from 'react';
 import Select from 'react-select';
 
-
 //options section 
 import { LabelSection } from './labels';
-import { dietLabels, healthLabels, defaultAny } from '../constants/options';
+import { dietLabels, healthLabels, defaultAny, labelIndex, calIndex } from '../constants/options';
 
+const UnderlinedOption = ({option}) => <span className="underline-option">{option}</span>;
+const OptionLabel = ({label}) => <span className="top-option-label">{label}: </span>;
 
 export const SearchSection = ({input, 
                                updateInput, 
@@ -21,12 +22,18 @@ export const SearchSection = ({input,
     <div className="search-left">
       <span className="keep-together">
         <input value={input} onChange={ev => updateInput(ev.target.value)} /> 
-        < button className="search-button" onClick={ev => search(input)}>Get Cooking!</button>
+        <button className="search-button" onClick={ev => search(input, options)}>Get Cooking!</button>
       </span>
-    </div>
-    <div className="advanced-options">
-        <div className="options-label" onClick={ev => displayOptions(!showOptions)}> 
-          options +
+      <div className="advanced-options">
+        <div className="options-label">
+          <div onClick={ev => displayOptions(!showOptions)}>
+            <b>filter options+ </b> 
+            <span className="option-block">
+              <OptionLabel label="calories" /><UnderlinedOption option={options.cals[calIndex.min]} /> to <UnderlinedOption option={options.cals[calIndex.max]}/></span>|
+            <span className="option-block">
+            <OptionLabel label="diet" /><UnderlinedOption option={options.labels[labelIndex.diet]} /></span>|
+            <span className="option-block">
+            <OptionLabel label="health" /><UnderlinedOption option={options.labels[labelIndex.health]} /></span>
           </div>
           { showOptions ?
             <div className="options-box">
@@ -43,12 +50,17 @@ export const SearchSection = ({input,
               </div> 
               <LabelSection labels={dietLabels} type="diet" labelsChange={labelsChange} options={options} />
               <LabelSection labels={healthLabels} type="health" labelsChange={labelsChange} options={options} />
-              <div className="center-stuff"><button className="update-button" onClick={ev => displayOptions(!showOptions)}>update</button></div>
+              <div className="center-stuff"><button className="update-button" onClick={ev => displayOptions(!showOptions)}>close</button></div>
             </div>
             : null
           } 
+        </div>
+      </div>
     </div>
-    {/*<div className="app-title">find-a-recipe</div>*/}
+    <div className="search-right">
+      <div className="app-title">find-a-recipe</div>
+    </div>
+    
   </div>
 );
 
