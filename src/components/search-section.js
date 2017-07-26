@@ -3,7 +3,7 @@ import Select from 'react-select';
 
 //options section 
 import { LabelSection } from './labels';
-import { dietLabels, healthLabels, defaultAny, labelIndex, calIndex } from '../constants/options';
+import { allLabels, defaultAny, calIndex } from '../constants/options';
 
 const UnderlinedOption = ({option}) => <span className="underline-option">{option}</span>;
 const OptionLabel = ({label}) => <span className="top-option-label">{label}: </span>;
@@ -31,9 +31,7 @@ export const SearchSection = ({input,
             <span className="option-block">
               <OptionLabel label="calories" /><UnderlinedOption option={options.cals[calIndex.min]} /> to <UnderlinedOption option={options.cals[calIndex.max]}/></span>|
             <span className="option-block">
-            <OptionLabel label="diet" /><UnderlinedOption option={options.labels[labelIndex.diet]} /></span>|
-            <span className="option-block">
-            <OptionLabel label="health" /><UnderlinedOption option={options.labels[labelIndex.health]} /></span>
+            <OptionLabel label="health / diet" /><UnderlinedOption option={options.labels} /></span>
           </div>
           { showOptions ?
             <div className="options-box">
@@ -48,8 +46,7 @@ export const SearchSection = ({input,
                         onFocus={()=>maxCalChange("")}
                         onBlur={()=>maxCalChange(defaultAny(options.cals[1]))} /> 
               </div> 
-              <LabelSection labels={dietLabels} type="diet" labelsChange={labelsChange} options={options} />
-              <LabelSection labels={healthLabels} type="health" labelsChange={labelsChange} options={options} />
+              <LabelSection labels={allLabels} type="health/diet" labelsChange={labelsChange} options={options} />
               <div className="center-stuff"><button className="update-button" onClick={ev => displayOptions(!showOptions)}>close</button></div>
             </div>
             : null

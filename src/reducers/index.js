@@ -12,7 +12,7 @@ const INITIAL_STATE = {
   loading: false,
   options: {
     cals:["any","any"],
-    labels: ["all","all"],
+    labels: "all",
     ingredients: []
   }
 };
