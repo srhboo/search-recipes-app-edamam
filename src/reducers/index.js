@@ -63,6 +63,8 @@ export const showOptions = (state = INITIAL_STATE.showOptions, {type, payload}) 
   switch(type) {
     case ACTION_TYPES.DISPLAY_OPTIONS:
       return payload;
+    case ACTION_TYPES.SEARCH:
+      return false;
   }
   return state;
 }

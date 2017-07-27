@@ -8,8 +8,11 @@ import { Observable } from 'rxjs';
 const recipeEpic = action$ =>
     action$.ofType(ACTION_TYPES.SEARCH)
     .mergeMap(action => 
-        Observable.ajax(`${BASE_ENDPOINT}&q=${action.payload.input}${parseOptions(action.payload.options)}`)
-            .map(({response}) => response.hits ? updateResults(response.hits) : console.log('error'))
+        Observable.ajax({
+                url:`${BASE_ENDPOINT}&q=${action.payload.input}${parseOptions(action.payload.options)}`,
+                crossDomain: true
+            })
+            .map(({response}) => response.hits ? updateResults(response.hits) : console.log(response))
             .catch(error => Observable.of(setError(true))) //why does this need to be observable of?
 );
 
