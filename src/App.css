@@ -83,6 +83,7 @@ body a:hover{
   color:#fff;
   position:fixed;
   z-index:1;
+  top:0;
 }
 .search-left{
   flex-basis:50%;
