@@ -107,7 +107,7 @@ export const anchor = (state = INITIAL_STATE.anchor, {type, payload}) => {
   switch(type) {
     case ACTION_TYPES.SET_ANCHOR:
       return payload;
-    case ACTION_TYPES.UPDATE_RESULTS:
+    case ACTION_TYPES.SEARCH:
       return "results";
     case ACTION_TYPES.DISPLAY_RECIPE:
       return "recipe";
