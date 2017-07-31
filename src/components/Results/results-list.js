@@ -13,6 +13,6 @@ export const ResultsList = ({display, results, ...props}) => (
             <div className="error-message">Oops something went wrong. We may have hit the limit of searches we can do per minute. <br />
             (We're very popular these days) <br />
             Please try again in a minute! You won't regret it.</div> 
-            : results.map(result => <ResultsListItem {...props} key={result.recipe.url} recipe={result.recipe} />)}
+            : results.map((result, ind) => <ResultsListItem {...props} key={`${result.recipe.url}-${ind}`} recipe={result.recipe} />)}
     </div>
 );

@@ -65,7 +65,7 @@ body a{
   color:#000;
 }
 body a:hover{
-  color:#a72926;
+  text-decoration:none;
 }
 .app-title{
   font-size:3em;
@@ -446,10 +446,12 @@ body a:hover{
   padding:1em;
   opacity:0.8;
 }
-/*loading*/
+/* loading */
 .loading-text {
   color:#fff;
 }
+
+/* taken from http://tobiasahlin.com/spinkit/ */
 .spinner {
   margin: 50px auto;
   width: 40px;
