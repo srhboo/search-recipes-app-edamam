@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import { generateProducts } from '../utils/data';
 import { ACTION_TYPES } from '../constants/ActionTypes';
 
 const INITIAL_STATE = {
@@ -14,39 +13,44 @@ const INITIAL_STATE = {
     cals:["any","any"],
     labels: "all",
     ingredients: []
-  }
+  },
+  anchor: "search"
 };
 
 export const input = ( state = INITIAL_STATE.input, {type, payload}) => {
   switch(type) {
     case ACTION_TYPES.UPDATE_INPUT:
       return payload;
+    default:
+      return state;
   }
-  return state;
 };
 
 export const results = (state = INITIAL_STATE.results, {type, payload}) => {
   switch(type) {
     case ACTION_TYPES.UPDATE_RESULTS:
       return payload; 
+    default:
+      return state;
   }
-  return state;
 };
 
 export const recipe = (state = INITIAL_STATE.recipe, {type, payload}) => {
   switch(type) {
     case ACTION_TYPES.DISPLAY_RECIPE:
       return payload;
+    default:
+      return state;
   }
-  return state;
 };
 
 export const info = (state = INITIAL_STATE.info, {type, payload}) => {
   switch(type) {
     case ACTION_TYPES.SWITCH_INFO:
       return payload;
+    default:
+      return state;
   }
-  return state;
 };
 
 export const error = (state = INITIAL_STATE.error, {type, payload}) => {
@@ -55,8 +59,9 @@ export const error = (state = INITIAL_STATE.error, {type, payload}) => {
       return payload;
     case ACTION_TYPES.UPDATE_RESULTS:
       return false;
+    default:
+      return state;
   }
-  return state;
 }
 
 export const showOptions = (state = INITIAL_STATE.showOptions, {type, payload}) => {
@@ -65,8 +70,9 @@ export const showOptions = (state = INITIAL_STATE.showOptions, {type, payload}) 
       return payload;
     case ACTION_TYPES.SEARCH:
       return false;
+    default:
+      return state;
   }
-  return state;
 }
 
 export const loading = (state = INITIAL_STATE.loading, {type, payload}) => {
@@ -77,8 +83,9 @@ export const loading = (state = INITIAL_STATE.loading, {type, payload}) => {
       return false;
     case ACTION_TYPES.SET_ERROR:
       return false;
+    default:
+      return state;
   }
-  return state;
 }
 
 export const options = (state = INITIAL_STATE.options, {type, payload}) => {
@@ -91,9 +98,23 @@ export const options = (state = INITIAL_STATE.options, {type, payload}) => {
       return {...state, labels: payload };
     case ACTION_TYPES.INGREDIENTS_CHANGE:
       return {...state, ingredients: payload };
+    default:
+      return state;
   }
-  return state;
 };
+
+export const anchor = (state = INITIAL_STATE.anchor, {type, payload}) => {
+  switch(type) {
+    case ACTION_TYPES.SET_ANCHOR:
+      return payload;
+    case ACTION_TYPES.UPDATE_RESULTS:
+      return "results";
+    case ACTION_TYPES.DISPLAY_RECIPE:
+      return "recipe";
+    default:
+      return state;
+  }
+}
 
 export default combineReducers({
   results,
@@ -103,5 +124,6 @@ export default combineReducers({
   error,
   showOptions,
   loading,
-  options
+  options,
+  anchor
 });

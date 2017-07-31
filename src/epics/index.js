@@ -1,9 +1,8 @@
 import { combineEpics } from 'redux-observable';
 import { BASE_ENDPOINT, parseOptions } from '../api/edamam';
-import { search, updateResults, setError } from '../actions';
+import { updateResults, setError } from '../actions';
 import { ACTION_TYPES } from '../constants/ActionTypes';
 import { Observable } from 'rxjs';
-
 
 const recipeEpic = action$ =>
     action$.ofType(ACTION_TYPES.SEARCH)

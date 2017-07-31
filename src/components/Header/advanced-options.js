@@ -19,7 +19,7 @@ export const AdvancedOptions = props => (
             </div>
             { 
                 props.showOptions ?
-                <OptionsBox {...props} />
+                <OptionsBox {...props} screen="desktop" />
                 : null
             } 
         </div>

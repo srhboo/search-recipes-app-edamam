@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { updateInput, search, displayRecipe, switchInfo, setError, displayOptions, minCalChange,
-         maxCalChange, labelsChange, ingredientsChange } from './actions';
+import { updateInput, search, displayRecipe, switchInfo, displayOptions, minCalChange,
+         maxCalChange, labelsChange, ingredientsChange, setAnchor } from './actions';
 import App from './App.js'
 
 const mapStateToProps = state => ({
@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
   error: state.error,
   showOptions: state.showOptions,
   loading: state.loading,
-  options: state.options
+  options: state.options,
+  anchor: state.anchor
 });
 
 const mapDispatchToProps = {
@@ -23,7 +24,8 @@ const mapDispatchToProps = {
   minCalChange,
   maxCalChange,
   labelsChange,
-  ingredientsChange
+  ingredientsChange,
+  setAnchor
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

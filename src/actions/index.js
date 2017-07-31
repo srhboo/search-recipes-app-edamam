@@ -76,3 +76,10 @@ export function ingredientsChange(value) {
     payload: value
   }
 }
+
+export function setAnchor(place) {
+  return {
+    type: ACTION_TYPES.SET_ANCHOR,
+    payload: place
+  }
+}

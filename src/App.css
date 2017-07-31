@@ -28,6 +28,9 @@ body{
   padding:0;
   font-family:'Cabin', sans-serif;
 }
+#root > div > div {
+  height:100%;
+}
 select {
   font-size:0.9em;
   background-color:#a72926;
@@ -88,8 +91,6 @@ body a:hover{
 .search-left{
   flex-basis:50%;
   flex-grow:1;
-  /*flex-basis: 30%;
-  min-width: 400px;*/
 }
 .search-left input {
   flex-grow:1;
@@ -135,6 +136,71 @@ body a:hover{
   font-size:1.2em;
   color:#fff;
 }
+
+/*mobile*/
+.search-section.mobile {
+  width:100%;
+  height:100%;
+  position:absolute;
+}
+.search-section.mobile input::placeholder {
+  color:#fff;
+  opacity:0.4;
+}
+.search-section.mobile .options-box {
+  position:relative;
+}
+.search-section.mobile .options-box div:last-child {
+  padding-bottom:2em;
+}
+.results-mobile-wrapper {
+  background-color:#a72926;
+  overflow:scroll;
+  width:100%;
+  height:100%;
+}
+.results-list.mobile li {
+  list-style:none;
+  padding:1em;
+  border:3px solid #fff;
+  color:#fff;
+  margin-bottom:1.5em;
+  text-align:center;
+  animation: 0.5s ease-out 0s 1 fadeIn;
+  background-color:#a72926;
+}
+.back-nav {
+  position:fixed;
+  top:10px;
+  left:10px;
+}
+.close-nav {
+  position:fixed;
+  width:1.5em;
+  top:10px;
+  right:10px;
+}
+.displayed-recipe.mobile {
+  margin:0;
+  padding:0;
+  text-align:center;
+}
+.displayed-recipe.mobile .selected-info {
+  border:0;
+}
+.displayed-recipe.mobile .section-links button {
+  background-color:#fff;
+}
+.displayed-recipe.mobile img {
+  width:100%;
+  margin-top:0;
+}
+.displayed-recipe.mobile h2 {
+  font-size:2em;
+  padding: 0 1em;
+}
+
+
 .search-section .options-box input{
   margin-right:1em;
   margin-left:1em;
@@ -195,8 +261,9 @@ body a:hover{
   font-weight:100;
   margin-top:1em;
 }
-.recipe-details img {
+.displayed-recipe img {
   object-fit:contain;
+  margin-top:3em;
 }
 .selected-info {
   padding:1em;

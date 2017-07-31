@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { DisplayedRecipe, NutritionContent, RecipeContent, ResultsList, ResultsListItem, SearchSection, SectionLink, WelcomeInstructions } from './components'
+import { DisplayedRecipe, ResultsList, SearchSection, WelcomeInstructions, MobileSearchSection } from './components'
+import MediaQuery from 'react-responsive';
 
 class App extends Component {
 
@@ -8,37 +9,36 @@ class App extends Component {
     super(props);
   }
 
-
   render() {
-    const { updateInput, 
-            input, 
-            results, 
-            search, 
-            displayRecipe, 
-            recipe, 
-            info, 
-            switchInfo,
-            options,
-            minCalChange,
-            maxCalChange,
-            labelsChange,
-            ingredientsChange } = this.props;
-
     return (
       <div>
-        <SearchSection {...this.props}/>
-        <div className="recipes-container">
-          <div className="container-left">
-          <ResultsList {...this.props} />
+        <MediaQuery query='(min-device-width: 1224px)'>
+          <div>
+            <SearchSection {...this.props}/>
+            <div className="recipes-container">
+              <div className="container-left">
+                <ResultsList {...this.props} display="desktop" />
+              </div>
+              <div className="container-right">
+                {
+                  this.props.recipe.label ? <DisplayedRecipe {...this.props} display="desktop"/> : <WelcomeInstructions />
+                }
+              </div>
+            </div>
           </div>
-          <div className="container-right">
-            {
-              recipe.label ? <DisplayedRecipe info={info} recipe={recipe} switchInfo={switchInfo} /> : <WelcomeInstructions />
-            }
-          </div>
-        </div>
-      </div>
-    
+        </MediaQuery>
+
+        <MediaQuery query='(max-device-width: 1224px)'>
+          { this.props.anchor === "search" ? 
+            <MobileSearchSection {...this.props} />
+            : this.props.anchor === "results" ?
+            <div className="results-mobile-wrapper">
+            <ResultsList {...this.props} display="mobile" /> 
+            </div>
+            : <DisplayedRecipe {...this.props} display="mobile" />
+          }
+        </MediaQuery>
+    </div>
     );
   }
 }

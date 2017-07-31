@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { ResultsList } from './results-list';
 import { ResultsListItem } from './results-list-item';
-import { recipeObject, recipeList } from '../constants/sample-recipe';
+import { recipeObject, recipeList } from '../../constants/sample-recipe';
 
 describe('results component tests', () => {
 

@@ -1,13 +1,12 @@
 const appID = '87a620cd';
 const appKey = '904607d528b6ba987913592efc02e3d5';
-import { labelIndex, calIndex, dietLabels, healthLabels } from '../constants/options';
+import { calIndex, dietLabels, healthLabels } from '../constants/options';
 
 export const BASE_ENDPOINT = `https://api.edamam.com/search?app_id=${appID}&app_key=${appKey}&to=30`;
 
 export const parseOptions = ({cals, labels}) => { 
     const lowerIsDefault = cals[calIndex.min] === 'any', 
           upperIsDefault = cals[calIndex.max] === 'any',
-          labelIsDefault = labels === 'all',
           dietIsDefault = dietLabels.indexOf(labels) < 0,
           healthIsDefault = healthLabels.indexOf(labels) < 0,
           calories = lowerIsDefault && upperIsDefault ? '' : '&calories=',

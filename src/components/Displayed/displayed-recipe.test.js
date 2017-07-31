@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { DisplayedRecipe } from './displayed-recipe';
 import { RecipeContent } from './recipe-content';
 import { NutritionContent } from './nutrition-content';
-import { recipeObject } from '../constants/sample-recipe';
+import { recipeObject } from '../../constants/sample-recipe';
 
 describe('displayed recipe component tests', () => {
     
