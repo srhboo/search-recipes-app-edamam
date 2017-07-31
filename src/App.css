@@ -143,6 +143,18 @@ body a:hover{
   height:100%;
   position:absolute;
 }
+.search-section.mobile > div {
+  width:100%;
+}
+.search-section.mobile > div > input {
+  margin-right:0;
+}
+.search-section.mobile .options-box > div input:last-child {
+  margin-right:0;
+}
+.search-section.mobile .search-button {
+  margin-right:0;
+}
 .search-section.mobile input::placeholder {
   color:#fff;
   opacity:0.4;
