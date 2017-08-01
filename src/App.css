@@ -188,6 +188,9 @@ body a:hover{
   width:100%;
   height:100%;
 }
+.results-list.mobile a {
+  color:#fff;
+}
 .results-list.mobile li {
   list-style:none;
   padding:1em;
