@@ -489,7 +489,7 @@ body a:hover{
 .loading-text {
   color:#a72926;
 }
-.welcome-instructions-image .loading-text {
+.welcome-instructions-image .loading-text, .results-list.mobile .loading-text {
   color:#fff;
 }
 
@@ -517,7 +517,8 @@ body a:hover{
   -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
   animation: sk-cubemove 1.8s infinite ease-in-out;
 }
-.welcome-instructions-image .cube1, .welcome-instructions-image .cube2 {
+.welcome-instructions-image .cube1, .welcome-instructions-image .cube2, 
+.results-list.mobile .cube1, .results-list.mobile .cube2 {
   background-color:#fff;
 }
 
