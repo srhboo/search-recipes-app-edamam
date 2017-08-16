@@ -1,6 +1,7 @@
 import React from 'react';
 import { ResultsListItem } from './results-list-item';
 import { Loading } from './loading';
+import { Error } from './error';
 
 export const ResultsList = ({display, results, ...props}) => (
     <div className={`results-list ${display}`}>
@@ -10,9 +11,7 @@ export const ResultsList = ({display, results, ...props}) => (
             <Loading />
         :
             props.error ?
-            <div className="error-message">Oops something went wrong. We may have hit the limit of searches we can do per minute. <br />
-            (We're very popular these days) <br />
-            Please try again in a minute! You won't regret it.</div> 
+            <Error />
             : results.map((result, ind) => <ResultsListItem {...props} key={`${result.recipe.url}-${ind}`} recipe={result.recipe} />)}
     </div>
 );
