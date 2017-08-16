@@ -7,7 +7,7 @@ export const DisplayedRecipe = ({recipe, info, switchInfo, display, setAnchor}) 
   
   recipe.label ?  
     <div className={`displayed-recipe ${display}`}>
-    { display === "mobile" ? <button className="close-nav" onClick={() => setAnchor("results")}>{`x`}</button> : null}
+    <button className="close-nav" onClick={() => setAnchor("results")}>{`x`}</button>
       <img src={recipe.image} alt={recipe.label} />
       <h2>{recipe.label}<div className="source-text"> from <a href={recipe.url}> {recipe.source} </a></div></h2> 
       <div className="recipe-details">

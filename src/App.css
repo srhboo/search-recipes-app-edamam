@@ -120,6 +120,7 @@ body a:hover{
   border:2px solid #fff;
   color:#fff;
   font-size:1.3em;
+  border-radius:5px;
 }
 .search-button:hover, button:hover {
   color:yellow;
@@ -177,8 +178,6 @@ body a:hover{
   max-width:50%;
   max-height:30%;
 }
-
-
 .results-mobile-wrapper {
   background-color:#a72926;
   overflow:scroll;
@@ -190,7 +189,6 @@ body a:hover{
 }
 .results-list.mobile li {
   list-style:none;
-  padding:1em;
   border:3px solid #fff;
   color:#fff;
   margin-bottom:1.5em;
@@ -212,23 +210,18 @@ body a:hover{
   right:10px;
   text-align:center;
 }
-.displayed-recipe.mobile {
-  margin:0;
-  padding:0;
-  text-align:center;
-  width:100%;
+.displayed-recipe.desktop .close-nav {
+  top:5%;
+  right:25%;
 }
-.displayed-recipe.mobile .selected-info {
+.displayed-recipe .selected-info {
   border:0;
 }
-.displayed-recipe.mobile .section-links button {
-  background-color:#fff;
-}
-.displayed-recipe.mobile img {
+.displayed-recipe img {
   width:100%;
   margin-top:0;
 }
-.displayed-recipe.mobile h2 {
+.displayed-recipe h2 {
   font-size:2em;
   padding: 0 1em;
 }
@@ -267,25 +260,42 @@ body a:hover{
   font-size:0.8em;
 }
 .recipes-container{
-  display:flex;
-  flex-wrap:wrap;
   width:100%;
   height:100%;
 }
 .displayed-recipe {
-  margin-left:2em;
-  margin-right:2em;
-  padding:0 2em 0 2em;
-  display:inline-block;
+  margin:0;
+  padding:0;
+  text-align:center;
+  width:100%;
+}
+/*overlay*/
+.window-overlay{
+  display:block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 400;
+  background: rgba(0,0,0,.7);
+  overflow-y:auto;
+}
+.recipe-modal{
+  background: #eee;
+  width: 40%;
+  top:10%;
+  margin: auto;
+  margin-bottom:10%;
+  position: relative;
+  border-radius: 5px;
+  padding: 60px;
 }
 
 .displayed-recipe h2 {
   font-size:2.5em;
   margin-bottom:0.5em;
   font-weight:100;
-}
-.diet-labels {
-  font-size:0.8em;
 }
 .source-text {
   font-size:0.3em;
@@ -294,14 +304,17 @@ body a:hover{
 }
 .displayed-recipe img {
   object-fit:contain;
-  margin-top:3em;
-}
-.selected-info {
-  padding:1em;
-  margin-bottom:2em;
+  border-radius:5px;
+  -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,.05);
+  box-shadow: 2px 2px 3px rgba(0,0,0,.05);
 }
 .selected-info h4{
   font-weight:700;
+  color:#a72926;
+  font-size:1.4em;
+}
+.selected-info h5 {
+  font-size:1em;
 }
 .section-links button {
   font-size:1.5em;
@@ -318,39 +331,31 @@ body a:hover{
 .section-links button:hover {
   cursor:pointer;
 }
+.displayed-recipe.mobile .section-links button{
+  background-color:#fff;
+}
 .container-left{
-  flex-basis: 50%;
-  flex-grow:1;
   min-width: 400px;
-  background-image: url("./img/gathering_medium.jpg");
-  background-size: cover;
-  background-repeat:no-repeat;
-  background-position:right;
+  width:100%;
+  height:100%;
   overflow:scroll;
   padding-top:5em;
+  background-color:#ED6;
 }
+
 @media screen and (min-width:1000px) {
-  .container-left{
+  .welcome-instructions-image{
     background-image: url("./img/gathering_large.jpg");
   }
 }
 @media screen and (max-width:500px){
-  .container-left{
+  .welcome-instructions-image{
     background-image: url("./img/gathering_small.jpg");
   }
 }
 @media screen and (max-width:800px) {
   .search-section {
     text-align:center;
-  }
-  .recipes-container .container-right {
-    padding-top:0;
-  }
-  .container-left, .container-right {
-    height:50%;
-  }
-  .container-left {
-    padding-bottom:1em;
   }
   .app-title {
     display:none;
@@ -365,7 +370,6 @@ body a:hover{
   }
 }
 .container-right{
-  flex-basis:50%;
   flex-grow:1;
   min-width: 400px;
   text-align:center;
@@ -374,32 +378,55 @@ body a:hover{
   padding-top:6em;
 }
 .results-list {
-  margin-left:20%;
-  margin-right:20%;
   padding-top:5em;
+  margin: 0 2em;
   font-size:14px;
-
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-around;
 }
 .results-list li {
   list-style:none;
-  padding:1em;
-  border:3px solid #000;
-  margin-bottom:1.5em;
+  margin-bottom:3em;
+  position:relative;
   text-align:center;
   animation: 0.5s ease-out 0s 1 fadeIn;
-  background-color:#fff;
+  border-radius:5px;
+  height:15em;
+  width:15em;
 }
 .results-list li:hover {
   background-color:yellow;
   cursor:pointer;
-  -webkit-transition: background-color 0.6s ease-out;
-  -moz-transition: background-color 0.6s ease-out;
-  -o-transition: background-color 0.6s ease-out;
-  transition: background-color 0.6s ease-out;
+}
+.results-list li img {
+  border-radius:5px;
+  max-width:15em;
+}
+.results-list li:hover {
+  -ms-transform: scale(1.03, 1.03); /* IE 9 */
+  -webkit-transform: scale(1.03, 1.03); /* Safari */
+  transform: scale(1.03, 1.03);
+}
+.results-list li > div {
+  position:absolute;
+  border-radius:5px;
+  bottom:0;
+  width:100%;
+  height:50%;
+  background: rgba(0, 0, 0, 0.5);
+  color:#fff;
+  display:flex;
+  flex-flow:column;
+  justify-content:center;
 }
 .results-list h4 {
   margin-top:0.3em;
   margin-bottom:0.3em;
+  font-size:1.2em;
+}
+.results-list a {
+  color:#fff;
 }
 .bottom-thick{
   border-bottom:4px solid #000;
@@ -430,10 +457,22 @@ body a:hover{
   display:inline-block;
   text-align:left;
   background-color:#fff;
-  border:1px solid #000;
+  padding:1em;
+  margin-bottom:2em;
+  border-radius:5px;
+  -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,.05);
+  box-shadow: 2px 2px 3px rgba(0,0,0,.05);
 }
 .ingredient-line{
   margin-bottom:0.8em;
+  list-style:none;
+  display:flex;
+  align-items:center;
+}
+.list-bullet {
+  color:#a72926;
+  margin-right:5px;
+  font-size:1.5em;
 }
 .error-message, {
   color:black;
@@ -447,6 +486,9 @@ body a:hover{
 }
 /* loading */
 .loading-text {
+  color:#a72926;
+}
+.welcome-instructions-image .loading-text {
   color:#fff;
 }
 
@@ -458,8 +500,12 @@ body a:hover{
   position: relative;
 }
 
+.welcome-instructions-image .spinner {
+  margin: 100px auto;
+}
+
 .cube1, .cube2 {
-  background-color: #fff;
+  background-color: #a72926;
   opacity:0.8;
   width: 15px;
   height: 15px;
@@ -469,6 +515,9 @@ body a:hover{
   
   -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
   animation: sk-cubemove 1.8s infinite ease-in-out;
+}
+.welcome-instructions-image .cube1, .welcome-instructions-image .cube2 {
+  background-color:#fff;
 }
 
 .cube2 {
@@ -510,9 +559,21 @@ body a:hover{
 .options-label:hover{
   cursor:pointer;
 }
+.welcome-instructions-image {
+  background-image: url("./img/gathering_medium.jpg");
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-position:right;  
+  width:100%;
+  height:100%;
+  position:fixed;
+}
 .welcome-instructions{
-  opacity:0.7;
   padding:1em 2em 2em 2em;
+  background: rgba(0, 0, 0, 0.5);
+  color:#fff;
+  font-size:1.3em;
+  height:100%;
 }
 .welcome-instructions li{
   text-align:left;
@@ -522,4 +583,3 @@ body a:hover{
 .welcome-instructions h4{
   font-size:2em;
 }
-

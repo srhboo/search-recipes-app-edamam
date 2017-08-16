@@ -14,15 +14,22 @@ class App extends Component {
       <div>
         <MediaQuery query='(min-device-width: 1224px)'>
           <div>
+            { this.props.recipe.label && this.props.anchor === "recipe" ?
+            <div className="window-overlay">
+              <div className="recipe-modal">
+                <DisplayedRecipe {...this.props} display="desktop" />
+              </div>
+            </div>
+            : null }
             <SearchSection {...this.props}/>
             <div className="recipes-container">
               <div className="container-left">
-                <ResultsList {...this.props} display="desktop" />
-              </div>
-              <div className="container-right">
                 {
-                  this.props.recipe.label ? <DisplayedRecipe {...this.props} display="desktop"/> : <WelcomeInstructions />
+                  this.props.results.length || this.props.loading ? 
+                  <ResultsList {...this.props} display="desktop" /> 
+                  : <WelcomeInstructions {...this.props}/>
                 }
+                
               </div>
             </div>
           </div>
