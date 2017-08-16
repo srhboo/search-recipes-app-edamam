@@ -180,7 +180,8 @@ body a:hover{
 }
 .results-mobile-wrapper {
   background-color:#a72926;
-  overflow:scroll;
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
   width:100%;
   height:100%;
 }
