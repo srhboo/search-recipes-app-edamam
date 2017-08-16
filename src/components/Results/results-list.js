@@ -7,7 +7,7 @@ export const ResultsList = ({display, results, ...props}) => (
     <div className={`results-list ${display}`}>
         { display === "mobile" ? <button className="back-nav" onClick={() => props.setAnchor("search")}>{`<<`}</button> : null}
         { 
-            true ? 
+            props.loading ? 
             <Loading />
         :
             props.error ?
