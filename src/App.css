@@ -40,7 +40,6 @@ select {
   border-left:0;
   border-right:0;
   padding-bottom:0.3em;
-  outline:0;
   text-align-last:center;
   -webkit-appearance: none;
   border-radius:0;
@@ -120,7 +119,6 @@ body a:hover{
   font-family:'Oleo Script',sans-serif;
   border:2px solid #fff;
   color:#fff;
-  outline:0;
   font-size:1.3em;
 }
 .search-button:hover, button:hover {
@@ -134,7 +132,6 @@ body a:hover{
   border-bottom: 2px solid #fff;
   border-top: 0;
   border-left: 0;
-  outline: 0;
   border-right: 0;
   text-align:center;
   background-color:inherit;
@@ -312,7 +309,6 @@ body a:hover{
   color:#000;
   text-decoration: none;
   border:none;
-  outline:none;
   background-color:#eee;
   margin-right:1em;
   margin-left:1em;
